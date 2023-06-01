@@ -1,0 +1,73 @@
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Main {
+    static int esc, opmenu;
+    static double num;
+    public static void main(String[] args) {
+
+        Adicao adi = new Adicao();
+        Subtracao sub = new Subtracao();
+        Multiplicacao mult = new Multiplicacao();
+        Divisao div = new Divisao();
+
+        ArrayList<Double> opr = new ArrayList<>();
+        Scanner ent = new Scanner(System.in);
+
+
+
+        do {
+            System.out.println("========== Menu ==========\n" +
+                    "1 - Adicionar os números\n" +
+                    "2 - Soma\n" +
+                    "3 - Subtração\n" +
+                    "4 - Divisão\n" +
+                    "5 - Multiplicação\n" +
+                    "6 - Sair");
+            try {
+                System.out.println("Escolha uma opção: ");
+                opmenu = ent.nextInt();
+            }catch (InputMismatchException e){
+                System.out.println("Caractere invalido!");
+                ent.nextLine();
+            }
+            switch (opmenu){
+                case 1:
+                    try {
+                        opr.removeAll(opr);
+                        do {
+                            System.out.println("Digite um número: ");
+                            num = ent.nextDouble();
+                            opr.add(num);
+
+                            System.out.println("Digite 1 para adicionar mais números ou 0 para finalizar está ação: ");
+                            esc = ent.nextInt();
+                        } while (esc == 1);
+                    }catch (InputMismatchException e){
+                        System.out.println("Caractere invalido!");
+                        ent.nextLine();
+                    }
+                    break;
+                case 2:
+                    adi.Op(opr);
+                    break;
+                case 3:
+                    sub.Op(opr);
+                    break;
+                case 4:
+                    div.Op(opr);
+                    break;
+                case 5:
+                    mult.Op(opr);
+                    break;
+                case 6:
+                    System.out.println("Saindo do programa...!");
+                    break;
+                default:
+                    System.out.println("Opção invalida!");
+                    break;
+            }
+        }while (opmenu !=6);
+    }
+}
