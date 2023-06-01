@@ -1,0 +1,19 @@
+import java.util.ArrayList;
+
+public class Subtracao extends Operacao{
+    public void Op(ArrayList<Double> opr){
+        try {
+            double sub = opr.get(0) - opr.get(1);
+
+            for (int i = 2; i < opr.size(); i++) {
+                sub -= opr.get(i);
+            }
+
+            System.out.println("\n\nSubtração: " + sub);
+        }catch (IndexOutOfBoundsException e ){
+            System.out.println("Não foram informados números o suficiente. Informe 2 ou mais " +
+                    "números para realizar essa ação!");
+        }
+    }
+
+}
