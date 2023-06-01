@@ -1,0 +1,19 @@
+import java.util.ArrayList;
+
+public class Multiplicacao extends Operacao{
+    double multiplica;
+    public void Op(ArrayList<Double> opr){
+
+        try {
+            multiplica = opr.get(0) * opr.get(1);
+
+            for (int i = 2; i < opr.size(); i++) {
+                multiplica *= opr.get(i);
+            }
+            System.out.println("\n\nMultiplicação: " + multiplica);
+        }catch (IndexOutOfBoundsException e ){
+            System.out.println("Não foram informados números o suficiente. Informe 2 ou mais " +
+                    "números para realizar essa ação!");
+        }
+    }
+}
