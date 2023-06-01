@@ -1,0 +1,18 @@
+import java.util.ArrayList;
+public class Adicao extends Operacao{
+    public void Op(ArrayList<Double> opr){
+        if(opr != null && opr.size() > 1){
+            double soma = 0.0;
+            for(double num : opr ){
+                soma += num;
+            }
+            System.out.println("\n\nSoma: "+soma);
+
+        }else if(opr.size() == 1){
+            System.out.println("Não foram informados números o suficiente. Informe 2 ou mais " +
+                    "números para realizar essa ação!");
+        }else{
+            System.out.println("Não foi informado nenhum número");
+        }
+    }
+}
